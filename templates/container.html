@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | DEMONSTRATION IDOR</title>
+</head>
+<body>
+    <header>
+        {% if not user.is_authenticated %}
+            <a href="{% url 'idor:login' %}">Login</a>
+        {% else %}
+            <span>{{user.username}}</span>
+            <a href="{% url 'idor:logout' %}">Logout</a>
+        {% endif %}
+    </header>
+
+    {% block content %}
+        
+    {% endblock content %}
+        
+</body>
+</html>

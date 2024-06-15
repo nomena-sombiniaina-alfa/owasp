@@ -1,0 +1,20 @@
+{% extends 'container.html' %}
+{% block title %}
+	LOGIN
+{% endblock title %}
+{% block content %}
+    <form method="POST">
+        <p>
+            <label>Username:
+                <input type="text" name="username" autofocus required>
+            </label>
+        </p>
+        <p>
+            <label>Password:
+                <input type="password" name="password" required>
+            </label>
+        </p>
+        {% csrf_token %}
+        <button>Login</button>
+    </form>
+{% endblock content %}
